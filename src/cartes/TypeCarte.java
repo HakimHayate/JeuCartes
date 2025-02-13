@@ -1,6 +1,6 @@
 package cartes;
 
-enum TypeCarte {
+public enum TypeCarte {
 	POPULARITE("Poupularité"), ATTAQUE("Attaque");
 
 	private String def;

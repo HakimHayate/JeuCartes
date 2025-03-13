@@ -1,27 +1,32 @@
 package cartes;
 
-public class Carte {
-	
-	private String nomCarte;
+public abstract class Carte {
+	private String description;
 	private TypeCarte typeCarte;
-	private int valeur;
+	private int nb_attaque;
+	private int nb_popularite;
 	
-	protected Carte(String nomCarte, TypeCarte typeCarte, int valeur) {
-		this.nomCarte = nomCarte;
+	protected Carte(String description, TypeCarte typeCarte, int nb_popularite, int nb_attaque) {
+		this.description = description;
 		this.typeCarte = typeCarte;
-		this.valeur = valeur;
+		this.nb_attaque = nb_attaque;
+		this.nb_popularite = nb_popularite;
 	}
 	
-	public TypeCarte donnerTypeCarte() {
+	public String getDescription() {
+		return description;
+	}
+	
+	public TypeCarte getType() {
 		return typeCarte;
 	}
 	
-	public String getNomCarte() {
-		return nomCarte;
+	public int getNbPopularite() {
+		return nb_popularite;
 	}
 	
-	public int getValeurCarte() {
-		return valeur;
+	public int getNbAttaque() {
+		return nb_attaque;
 	}
 	
 }

@@ -3,14 +3,8 @@ package cartes;
 import personnages.Personnage;
 
 public class CartePopularite extends Carte{
-	
-	public CartePopularite(String nomCarte, TypeCarte type, int nb_popularite) {
-		super(nomCarte, type, nb_popularite);
+	public CartePopularite(String description, TypeCarte type, int nb_popularite) {
+		super(description, type, nb_popularite, 0);
 	}
 	
-	
-	
-	public void gagnerPopularite(Personnage personne) {
-		personne.setPopularite(getValeurCarte());
-	}
 }

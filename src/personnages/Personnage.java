@@ -2,22 +2,41 @@ package personnages;
 import cartes.*;
 
 public class Personnage {
-	private Carte cartes[] = new Carte[20];
-	private int nb_cartes = -1; // Pas de cartes au départ
+	private int TAILLE_MAX = 5;
+	private Carte main[] = new Carte[20];
+	private int nbCartesMain = -1; // Pas de cartes au départ
 	private String name;
-	private int popularite = 0;
+	private int nbPopularite = 0;
 	private int pv = 5; // Nombre de coeurs
 	
 	public Personnage(String name) {
 		this.name = name;
 	}
 	
-	public void carteAjoutee() {
-		nb_cartes++;
+	public int getNbCarteMain() {
+		return nbCartesMain;
+	}
+	
+	public Carte jouerCarte(int index) {
+		Carte carte = main[index];
+		main[index] = main[nbCartesMain];
+		nbCartesMain--;
+		return carte;
+	}
+	
+	public void ajoutercarte(Carte carte) {
+		if (nbCartesMain<TAILLE_MAX) {
+			nbCartesMain++;
+			main[nbCartesMain] = carte;
+		}
+	}
+	
+	public Carte[] getMain() {
+		return main;
 	}
 	
 	public void setPopularite(int n) {
-		popularite+=n;
+		nbPopularite+=n;
 	}
 	
 	public void setPV(int n) {
@@ -32,14 +51,16 @@ public class Personnage {
 		return pv;
 	}
 	
-	public int getPopularite() {
-		return popularite;
-	}
-	public void piocher(Carte carte) {
-		nb_cartes++;
-		cartes[nb_cartes] = carte;
+	public boolean estMort() {
+		return pv <= 0;
 	}
 	
+	public boolean estPopulaire() {
+		return nbPopularite >= 5;
+	}
 	
+	public int getNbPopularite() {
+		return nbPopularite;
+	}
 }
 

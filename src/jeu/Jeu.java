@@ -52,7 +52,9 @@ public class Jeu {
 			affiche.joueurGagnePV(p.getName() ,carte.getNbPopularite());
 		}
 	}
-	
+	public Personnage creerPersonnage(String nom) {
+		return new Personnage(nom);
+	}
 	private void ajouterCarte(int i) {
 		TypeCarte type;
 		TypeCarte[] values = TypeCarte.values();
@@ -85,7 +87,6 @@ public class Jeu {
 	
 	public boolean piocher(Personnage p) {
 		if (nb_cartes_dispo<0) {
-			affiche.afficher("Aucune carte n'est disponible dans la pioche");
 			return false;
 		}
 		Carte cartePiochee = pioche[nb_cartes_dispo];
